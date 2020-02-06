@@ -70,6 +70,76 @@ class Weather extends Component {
             city: dane.cities
         })
     }
+    whichElement = (string) => {
+
+        if (string === "00") {
+            return 0
+        }
+        else if (string === "03") {
+            return 1
+        }
+        else if (string === "06") {
+            return 2
+        }
+        else if (string === "09") {
+            return 3
+        }
+        else if (string === "12") {
+            return 4
+        }
+        else if (string === "15") {
+            return 5
+        }
+        else if (string === "18") {
+            return 6
+        }
+        else if (string === "21") {
+            return 7
+        }
+    }
+    getBitWeatherData = () => {
+        //let link = 'http://api.openweathermap.org/data/2.5/forecast?q=London,uk&APPID=61cc394ed2a41ce5335ec0ffb1e171ac'
+        let link = 'test.json'
+        axios.get(link)
+            .then(res => {
+                let listLen = res.data.list.length
+                let dzisData = this.state.yyyy + '-' + this.state.mm + '-' + this.state.dd
+                let jutroData = this.state.yyyy + '-' + this.state.mm + '-' + String(parseInt(this.state.dd) + 1).padStart(2, '0')
+                let pojutrzeData = this.state.yyyy + '-' + this.state.mm + '-' + String(parseInt(this.state.dd) + 2).padStart(2, '0')
+                let za3dniData = this.state.yyyy + '-' + this.state.mm + '-' + String(parseInt(this.state.dd) + 3).padStart(2, '0')
+                let za4dniData = this.state.yyyy + '-' + this.state.mm + '-' + String(parseInt(this.state.dd) + 4).padStart(2, '0')
+
+
+                for (let i = 0; i < listLen; i++) {
+
+                    switch (res.data.list[i].dt_txt.substring(0, 10)) {
+                        case dzisData:
+
+                            break;
+                        case jutroData:
+
+                            break;
+                        case pojutrzeData:
+
+                            break;
+                        case za3dniData:
+
+                            break;
+                        case za4dniData:
+
+                            break;
+                        default:
+                    }
+                }
+            })
+    }
+
+    // ON COMPONENENT LOAD START FUNCTION
+    componentDidMount = () => {
+        this.getBitWeatherData()
+        //this.getAllCities() 
+    
+    }
 
 
 render(){
