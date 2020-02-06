@@ -3,7 +3,12 @@ import { InputGroup, Button, FormControl } from 'react-bootstrap'
 import './SearchInput.css';
 
 class SearchInput extends Component {
+    
 
+    filterCity = () => {
+        this.props.citySearchFunc(this._inputFilter.value.replace(/\w\S*/g, function(txt){
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()}).trim())
+    }
 
 
     render() {
@@ -11,13 +16,13 @@ class SearchInput extends Component {
         return (
             <div>
                 <InputGroup className="mb-3">
-                    <FormControl 
+                    <FormControl ref={ (data) => {this._inputFilter = data;}}
                         placeholder="Wpisz miasto"
                         aria-label="Wpisz miasto"
                         aria-describedby="basic-addon2"
                     />
                     <InputGroup.Append>
-                        <Button variant="outline-secondary">Szukaj</Button>
+                        <Button onClick={this.filterCity} variant="outline-secondary">Szukaj</Button>
                     </InputGroup.Append>
                 </InputGroup>
             </div>

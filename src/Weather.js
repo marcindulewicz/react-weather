@@ -28,8 +28,43 @@ class Weather extends Component {
             filteredCities2: []
         }
     }
+    getAllCities = () => {
+        let link2 = 'current.city.list.json'
+        let towns = []
+        axios.get(link2)
+            .then(res => {
 
-   
+                for (let j = 0; j < res.data.length; j++) {
+                    towns[j] = res.data[j].name
+                }
+                this.setState({
+                    cities: towns
+                })
+
+            })
+    }
+    filterCities = (data) => {
+       
+        let allCities = this.state.cities
+        allCities = allCities.filter(miasta => {
+            return (miasta.search(data) !== -1)
+        })
+        
+
+        
+        if (data == "") {
+            this.setState({
+                filteredCities2: []
+            })
+        }
+        else {
+        }
+        this.setState({
+            filteredCities2: allCities
+        })
+        
+    }
+
 
 
 render(){
@@ -37,7 +72,7 @@ render(){
     return (
         <div>
             <br></br>
-            <SearchInput />
+            <SearchInput citySearchFunc={this.filterCities}  />
             <br></br>
             <SearchResult  />
             <br></br>
