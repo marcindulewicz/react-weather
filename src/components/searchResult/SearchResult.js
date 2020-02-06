@@ -5,7 +5,10 @@ import './SearchResult.css';
 class SearchResult extends Component {
 
     createCities = (cities) => {
-        return <ListGroup.Item  className='city_names black' >{cities}</ListGroup.Item>
+        return <ListGroup.Item onClick={()=>this.iWantThisCity({cities})} className='city_names black' >{cities}</ListGroup.Item>
+    }
+    iWantThisCity = (town) =>{
+        this.props.cityGetFuncProps(town)
     }
 
 

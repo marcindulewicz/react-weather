@@ -64,7 +64,12 @@ class Weather extends Component {
         })
         
     }
-
+    getCity = (dane) => {
+      
+        this.setState({
+            city: dane.cities
+        })
+    }
 
 
 render(){
@@ -74,7 +79,7 @@ render(){
             <br></br>
             <SearchInput citySearchFunc={this.filterCities}  />
             <br></br>
-            <SearchResult  />
+            <SearchResult cityGetFuncProps={this.getCity} cityListProps={this.state.filteredCities2} />
             <br></br>
 
             <Accordion className='width75' defaultActiveKey="0">
