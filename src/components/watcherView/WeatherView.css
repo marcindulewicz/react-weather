@@ -1,0 +1,32 @@
+.black {
+    color: black;
+}
+.small_text {
+    font-size: 0.6rem;
+}
+.medium_text {
+    font-size: 0.8rem;
+}
+.big_text {
+    font-size: 1.8rem;
+}
+.verticall_position{
+    display: inline-block;
+}
+.width100 {
+    width: 100%;
+}
+.marginleft {
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+}
+.widthCard {
+    width: 7rem
+}
+.width75 {
+    width: 75%;
+}
+
+.width85 {
+    min-width: 36rem;
+}
