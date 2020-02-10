@@ -17,6 +17,7 @@ class WeatherView extends Component {
                         <Card.Text className="small_text">
                         <Image className="width75" src="https://f0.pngfuel.com/png/851/689/sun-illustration-png-clip-art.png" rounded />
                         </Card.Text>
+                        <Card.Subtitle className="mb-2 text-muted medium_text">&deg;C</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Siła wiatru:</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Ciśnienie:</Card.Subtitle>
                 
@@ -29,6 +30,7 @@ class WeatherView extends Component {
                         <Card.Text className="small_text">
                         <Image className="width75" src="https://f0.pngfuel.com/png/851/689/sun-illustration-png-clip-art.png" rounded />
                         </Card.Text>
+                        <Card.Subtitle className="mb-2 text-muted medium_text">&deg;C</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Siła wiatru:</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Ciśnienie:</Card.Subtitle>
               
@@ -41,6 +43,7 @@ class WeatherView extends Component {
                         <Card.Text className="small_text">
                         <Image className="width75" src="https://f0.pngfuel.com/png/851/689/sun-illustration-png-clip-art.png" rounded />
                         </Card.Text>
+                        <Card.Subtitle className="mb-2 text-muted medium_text">&deg;C</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Siła wiatru:</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Ciśnienie:</Card.Subtitle>
      
@@ -53,6 +56,7 @@ class WeatherView extends Component {
                         <Card.Text className="small_text">
                         <Image className="width75" src="https://f0.pngfuel.com/png/851/689/sun-illustration-png-clip-art.png" rounded />
                         </Card.Text>
+                        <Card.Subtitle className="mb-2 text-muted medium_text">&deg;C</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Siła wiatru:</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Ciśnienie:</Card.Subtitle>
             
@@ -65,6 +69,7 @@ class WeatherView extends Component {
                         <Card.Text className="small_text">
                         <Image className="width75" src="https://f0.pngfuel.com/png/851/689/sun-illustration-png-clip-art.png" rounded />
                         </Card.Text>
+                        <Card.Subtitle className="mb-2 text-muted medium_text">&deg;C</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Siła wiatru:</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Ciśnienie:</Card.Subtitle>
 
@@ -77,6 +82,7 @@ class WeatherView extends Component {
                         <Card.Text className="small_text">
                         <Image className="width75" src="https://f0.pngfuel.com/png/851/689/sun-illustration-png-clip-art.png" rounded />
                         </Card.Text>
+                        <Card.Subtitle className="mb-2 text-muted medium_text">&deg;C</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Siła wiatru:</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Ciśnienie:</Card.Subtitle>
   
@@ -89,6 +95,7 @@ class WeatherView extends Component {
                         <Card.Text className="small_text">
                         <Image className="width75" src="https://f0.pngfuel.com/png/851/689/sun-illustration-png-clip-art.png" rounded />
                         </Card.Text>
+                        <Card.Subtitle className="mb-2 text-muted medium_text">&deg;C</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Siła wiatru:</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Ciśnienie:</Card.Subtitle>
      
@@ -101,6 +108,7 @@ class WeatherView extends Component {
                         <Card.Text className="small_text">
                         <Image className="width75" src="https://f0.pngfuel.com/png/851/689/sun-illustration-png-clip-art.png" rounded />
                         </Card.Text>
+                        <Card.Subtitle className="mb-2 text-muted medium_text">&deg;C</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Siła wiatru:</Card.Subtitle>
                         <Card.Subtitle className="mb-2 text-muted small_text">Ciśnienie:</Card.Subtitle>
 
