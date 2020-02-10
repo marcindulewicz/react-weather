@@ -17,12 +17,12 @@ class SearchInput extends Component {
             <div>
                 <InputGroup className="mb-3">
                     <FormControl ref={ (data) => {this._inputFilter = data;}}
-                        placeholder="Wpisz miasto"
-                        aria-label="Wpisz miasto"
+                        placeholder="Enter city"
+                        aria-label="Enter city"
                         aria-describedby="basic-addon2"
                     />
                     <InputGroup.Append>
-                        <Button onClick={this.filterCity} variant="outline-secondary">Szukaj</Button>
+                        <Button onClick={this.filterCity} variant="outline-secondary">Search</Button>
                     </InputGroup.Append>
                 </InputGroup>
             </div>

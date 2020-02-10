@@ -15,7 +15,7 @@ class SearchResult extends Component {
     render() {
 
         let cities2display = []
-        console.log(this.props.cityListProps)
+       // console.log(this.props.cityListProps)
         if(!(this.props.cityListProps==undefined ||this.props.cityListProps==[])){
             cities2display=this.props.cityListProps.map(this.createCities)
         }
