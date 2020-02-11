@@ -16,8 +16,8 @@ class Weather extends Component {
 
         this.state = {
             dzis: today,
-            dd: "05",
-            // dd: String(today.getDate()).padStart(2, '0'),
+           // dd: "05",
+             dd: String(today.getDate()).padStart(2, '0'),
             mm: String(today.getMonth() + 1).padStart(2, '0'),
             yyyy: today.getFullYear(),
             city: 'Warsaw',
@@ -36,7 +36,8 @@ class Weather extends Component {
                 humidi: 50,
                 visibili: 10,
                 sunrise: '7:12',
-                sunset: '19:12'
+                sunset: '19:12',
+                wind: 8.5
             }
         }
     }
@@ -64,7 +65,7 @@ class Weather extends Component {
 
 
 
-        if (data == "") {
+        if (data === "") {
             this.setState({
                 filteredCities2: []
             })
@@ -79,8 +80,11 @@ class Weather extends Component {
     getCity = (dane) => {
 
         this.setState({
-            city: dane.cities
+            city: dane.cities,
+            filteredCities2: []
         })
+        this.getBitWeatherData()
+        this.getNowWeatherData()
     }
     whichElement = (string) => {
 
@@ -128,8 +132,8 @@ class Weather extends Component {
 
     }
     getBitWeatherData = () => {
-        //let link = 'http://api.openweathermap.org/data/2.5/forecast?q=London,uk&APPID=61cc394ed2a41ce5335ec0ffb1e171ac'
-        let link = 'test.json'
+        let link = 'http://api.openweathermap.org/data/2.5/forecast?q=' + this.state.city + '&APPID=61cc394ed2a41ce5335ec0ffb1e171ac'
+       // let link = 'test.json'
         axios.get(link)
             .then(res => {
                 // DATY
@@ -224,20 +228,24 @@ class Weather extends Component {
         return formattedTime
     }
     getNowWeatherData = () => {
-        //let link2 = 'http://api.openweathermap.org/data/2.5/forecast?q=London,uk&APPID=61cc394ed2a41ce5335ec0ffb1e171ac'
-        let link2 = 'test_now.json'
-        axios.get(link2)
+        let link3 = 'http://api.openweathermap.org/data/2.5/weather?q=' + this.state.city + '&APPID=61cc394ed2a41ce5335ec0ffb1e171ac'
+  
+        
+        //let link3 = 'test_now.json'
+        axios.get(link3)
             .then(res => {
                 let data_now = {
                     id: res.data.weather[0].id,
                     desc: res.data.weather[0].description,
-                    temp: Math.round(parseInt(res.data.main.temp) -273),
+                    temp: Math.round(parseFloat(res.data.main.temp) -273),
                     press: res.data.main.pressure,
                     humidi: res.data.main.humidity,
-                    visibili: Math.round(parseInt(res.data.visibility)/10),
+                    visibili: Math.round(parseFloat(res.data.visibility)/1000),
                     sunrise: this.convertUnix(res.data.sys.sunrise),
-                    sunset: this.convertUnix(res.data.sys.sunset)
+                    sunset: this.convertUnix(res.data.sys.sunset),
+                    wind: Math.round(parseFloat(res.data.wind.speed)*3.6)
                 }
+                
                 this.setState({
                     weatherNow: data_now
                 })
@@ -248,7 +256,9 @@ class Weather extends Component {
     }
     // ON COMPONENENT LOAD START FUNCTION
     componentDidMount = () => {
+        this.getAllCities()
         this.getBitWeatherData()
+        this.getNowWeatherData()
         //this.getAllCities() 
 
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroup, Button, ThemeProvider } from 'react-bootstrap'
+import { ListGroup } from 'react-bootstrap'
 import './SearchResult.css';
 
 class SearchResult extends Component {
@@ -16,7 +16,7 @@ class SearchResult extends Component {
 
         let cities2display = []
        // console.log(this.props.cityListProps)
-        if(!(this.props.cityListProps==undefined ||this.props.cityListProps==[])){
+        if(!(this.props.cityListProps===undefined ||this.props.cityListProps===[])){
             cities2display=this.props.cityListProps.map(this.createCities)
         }
 

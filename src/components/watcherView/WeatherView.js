@@ -123,7 +123,7 @@ class WeatherView extends Component {
         let description8 = ""
         let id8 ="i00000"
 
-console.log("IMAGE",weather_img[String({id1})])
+
 
 
         if (!(this.props.weatherDataProps[0] === undefined)) {
