@@ -99,19 +99,7 @@ class Weather extends Component {
         }
     }
     createObjectWeather = (temperatura, odczuwalna, cisnienie, wilgotnosc, idek, opis, chmury, wiatr) => {
-     //   let weatherObj = new WeatherNowObj()
-      //  function WeatherNowObj(temp, temp_feel, press, humidity, id, description, cloud,wind) {
-          //  this.temp = temp;
-         //   this.temp_feel = temp_feel;
-         //   this.press = press;
-         //   this.humidity = humidity;
-         //   this.id = id;
-         //   this.description = description;
-         //   this.cloud = cloud
-         //   this.wind = wind
 
-       // }
-       // let wynik = new WeatherNowObj(temperatura, odczuwalna, cisnienie, wilgotnosc, idek, opis, chmury, wiatr)
         let wynik = {temp: temperatura ,
             temp_feel: odczuwalna,
             press: cisnienie,
