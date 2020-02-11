@@ -17,7 +17,7 @@ class Weather extends Component {
         this.state = {
             dzis: today,
             dd: "05",
-           // dd: String(today.getDate()).padStart(2, '0'),
+            // dd: String(today.getDate()).padStart(2, '0'),
             mm: String(today.getMonth() + 1).padStart(2, '0'),
             yyyy: today.getFullYear(),
             city: 'Warsaw',
@@ -27,7 +27,17 @@ class Weather extends Component {
             dni3Arr: [],
             dni4Arr: [],
             cities: ['Warszawa', 'Lublin', 'San Diego', 'Pruszkow'],
-            filteredCities2: []
+            filteredCities2: [],
+            weatherNow: {
+                id: '803',
+                desc: 'Clear Sky',
+                temp: 17,
+                press: 1013,
+                humidi: 50,
+                visibili: 10,
+                sunrise: '7:12',
+                sunset: '19:12'
+            }
         }
     }
     getAllCities = () => {
@@ -101,17 +111,19 @@ class Weather extends Component {
     }
     createObjectWeather = (temperatura, odczuwalna, cisnienie, wilgotnosc, idek, opis, chmury, wiatr) => {
 
-        let wynik = {temp: temperatura ,
+        let wynik = {
+            temp: temperatura,
             temp_feel: odczuwalna,
             press: cisnienie,
             humidity: wilgotnosc,
             id: idek,
-            description: opis.replace(/\w\S*/g, function(txt){
-                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()}).trim(),
+            description: opis.replace(/\w\S*/g, function (txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+            }).trim(),
             cloud: chmury,
             wind: wiatr
-         }
-        
+        }
+
         return wynik
 
     }
@@ -135,21 +147,21 @@ class Weather extends Component {
                 let dni4Arrr = ["", "", "", "", "", "", ""]
                 // WYPELNIONE TABLICE PUSTYMI OBIEKTAMI
                 dzisArrr = dzisArrr.map(() => {
-                    return this.createObjectWeather("--", "--", "--", "--%","00000","--","--", "--")
+                    return this.createObjectWeather("--", "--", "--", "--%", "00000", "--", "--", "--")
                 })
                 jutroArrr = jutroArrr.map(() => {
-                    return this.createObjectWeather("--", "--", "--", "--%","00000","--","--", "--")
+                    return this.createObjectWeather("--", "--", "--", "--%", "00000", "--", "--", "--")
                 })
                 pojutrzeArrr = pojutrzeArrr.map(() => {
-                    return this.createObjectWeather("--", "--", "--", "--%","00000","--","--", "--")
+                    return this.createObjectWeather("--", "--", "--", "--%", "00000", "--", "--", "--")
                 })
                 dni3Arrr = dni3Arrr.map(() => {
-                    return this.createObjectWeather("--", "--", "--", "--%","00000","--","--", "--")
+                    return this.createObjectWeather("--", "--", "--", "--%", "00000", "--", "--", "--")
                 })
                 dni4Arrr = dni4Arrr.map(() => {
-                    return this.createObjectWeather("--", "--", "--", "--%","00000","--","--", "--")
+                    return this.createObjectWeather("--", "--", "--", "--%", "00000", "--", "--", "--")
                 })
-                
+
 
 
 
@@ -163,7 +175,7 @@ class Weather extends Component {
                     let ident = res.data.list[i].weather[0].id
                     let opis_pogody = res.data.list[i].weather[0].description
                     let chmurki = res.data.list[i].clouds.all
-                    let wiater = (res.data.list[i].wind.speed)*3.6
+                    let wiater = (res.data.list[i].wind.speed) * 3.6
 
 
 
@@ -172,19 +184,19 @@ class Weather extends Component {
 
                     switch (res.data.list[i].dt_txt.substring(0, 10)) {
                         case dzisData:
-                            dzisArrr[element] = this.createObjectWeather(temp_now, temp_f_now, cisnien, wilgotn, ident, opis_pogody,chmurki, wiater)
+                            dzisArrr[element] = this.createObjectWeather(temp_now, temp_f_now, cisnien, wilgotn, ident, opis_pogody, chmurki, wiater)
                             break;
                         case jutroData:
-                            jutroArrr[element] = this.createObjectWeather(temp_now, temp_f_now, cisnien, wilgotn, ident, opis_pogody,chmurki, wiater)
+                            jutroArrr[element] = this.createObjectWeather(temp_now, temp_f_now, cisnien, wilgotn, ident, opis_pogody, chmurki, wiater)
                             break;
                         case pojutrzeData:
-                            pojutrzeArrr[element] = this.createObjectWeather(temp_now, temp_f_now, cisnien, wilgotn, ident, opis_pogody,chmurki, wiater)
+                            pojutrzeArrr[element] = this.createObjectWeather(temp_now, temp_f_now, cisnien, wilgotn, ident, opis_pogody, chmurki, wiater)
                             break;
                         case za3dniData:
-                            dni3Arrr[element] = this.createObjectWeather(temp_now, temp_f_now, cisnien, wilgotn, ident, opis_pogody,chmurki, wiater)
+                            dni3Arrr[element] = this.createObjectWeather(temp_now, temp_f_now, cisnien, wilgotn, ident, opis_pogody, chmurki, wiater)
                             break;
                         case za4dniData:
-                            dni4Arrr[element] = this.createObjectWeather(temp_now, temp_f_now, cisnien, wilgotn, ident, opis_pogody,chmurki, wiater)
+                            dni4Arrr[element] = this.createObjectWeather(temp_now, temp_f_now, cisnien, wilgotn, ident, opis_pogody, chmurki, wiater)
                             break;
                         default:
                     }
@@ -199,10 +211,41 @@ class Weather extends Component {
                     dni3Arr: dni3Arrr,
                     dni4Arr: dni4Arrr,
                 })
-               
+
             })
     }
+    convertUnix = (timer) => {
+        
+     
+        let date = new Date(timer * 1000);
+        let hours = date.getHours();
+        let minutes = "0" + date.getMinutes();
+        let formattedTime = hours + ':' + minutes.substr(-2)
+        return formattedTime
+    }
+    getNowWeatherData = () => {
+        //let link2 = 'http://api.openweathermap.org/data/2.5/forecast?q=London,uk&APPID=61cc394ed2a41ce5335ec0ffb1e171ac'
+        let link2 = 'test_now.json'
+        axios.get(link2)
+            .then(res => {
+                let data_now = {
+                    id: res.data.weather[0].id,
+                    desc: res.data.weather[0].description,
+                    temp: Math.round(parseInt(res.data.main.temp) -273),
+                    press: res.data.main.pressure,
+                    humidi: res.data.main.humidity,
+                    visibili: Math.round(parseInt(res.data.visibility)/10),
+                    sunrise: this.convertUnix(res.data.sys.sunrise),
+                    sunset: this.convertUnix(res.data.sys.sunset)
+                }
+                this.setState({
+                    weatherNow: data_now
+                })
 
+
+            })
+
+    }
     // ON COMPONENENT LOAD START FUNCTION
     componentDidMount = () => {
         this.getBitWeatherData()
@@ -220,7 +263,7 @@ class Weather extends Component {
                 <br></br>
                 <SearchResult cityGetFuncProps={this.getCity} cityListProps={this.state.filteredCities2} />
                 <br></br>
-                <NowView/>
+                <NowView weatherNowDataProps = {this.state.weatherNow} cityProps = {this.state.city} />
                 <br></br>
 
                 <Accordion className='width75' defaultActiveKey="0">
@@ -245,7 +288,7 @@ class Weather extends Component {
                             <h2 className='black'>In 2 days</h2>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="2">
-                            <Card.Body className="ceneter"><WeatherView weatherDataProps={this.state.pojutrzeArr}  /></Card.Body>
+                            <Card.Body className="ceneter"><WeatherView weatherDataProps={this.state.pojutrzeArr} /></Card.Body>
                         </Accordion.Collapse>
                     </Card>
                     <Card className='width75'>
