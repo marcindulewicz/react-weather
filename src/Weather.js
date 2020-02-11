@@ -5,6 +5,7 @@ import './Weather.css';
 import SearchInput from './components/searchInput/SearchInput'
 import SearchResult from './components/searchResult/SearchResult'
 import WeatherView from './components/watcherView/WeatherView'
+import NowView from './components/nowView/NowView'
 
 
 class Weather extends Component {
@@ -218,6 +219,8 @@ class Weather extends Component {
                 <SearchInput citySearchFunc={this.filterCities} />
                 <br></br>
                 <SearchResult cityGetFuncProps={this.getCity} cityListProps={this.state.filteredCities2} />
+                <br></br>
+                <NowView/>
                 <br></br>
 
                 <Accordion className='width75' defaultActiveKey="0">
