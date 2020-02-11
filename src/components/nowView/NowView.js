@@ -74,22 +74,22 @@ class NowView extends Component {
             <div>
                 <Card className="verticall_position marginleft1"  >
                     <Col className="verticall_position width45">
-                        <Card.Body className="verticall_position narginleft widthCard1"  >
+                        <Card.Body className="verticall_position narginleft widthCard2"  >
 
                             <Card.Title className='black big_text'>{this.props.cityProps}</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted medium_text">{this.props.weatherNowDataProps.desc}</Card.Subtitle>
                             <Card.Text className="small_text ">
                                 <Image className="width75" src={"/img/" + weather_img["i" +this.props.weatherNowDataProps.id]} rounded />
                             </Card.Text>
-                            <Card.Subtitle className="mb-2 text-muted medium_text textleft">
+                            <Card.Subtitle className="mb-2 text-muted medium_text textleft padleft">
 
                                 <Image className="height08" src="/img/wind.svg" rounded />
                                 {this.props.weatherNowDataProps.wind} km/h  </Card.Subtitle>
-                            <Card.Subtitle className="mb-2 text-muted medium_text textleft">
+                            <Card.Subtitle className="mb-2 text-muted medium_text textleft padleft">
 
                                 <Image className="height08" src="/img/panorama.svg" rounded />
                                 {this.props.weatherNowDataProps.visibili} km</Card.Subtitle>
-                            <Card.Subtitle className="mb-2 text-muted medium_text textleft">
+                            <Card.Subtitle className="mb-2 text-muted medium_text textleft padleft">
 
                                 <Image className="height08" src="/img/sunrise.svg" rounded />
                                 {this.props.weatherNowDataProps.sunrise}</Card.Subtitle>

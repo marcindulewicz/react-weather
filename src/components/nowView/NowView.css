@@ -4,6 +4,9 @@
 .widthCard1 {
     width: 10rem
 }
+.widthCard2 {
+    width: 16rem
+}
 
 .big_text1 {
     font-size: 3.3rem;
@@ -20,4 +23,7 @@
 .textleft {
     text-align: left;
     padding-left: 12px;
+}
+.padleft {
+    padding-left: 3.5rem;
 }
